@@ -102,7 +102,6 @@ var cssTasks = function(filename) {
         errLogToConsole: !enabled.failStyleTask
       }));
     })
-    .pipe(concat, filename)
     .pipe(autoprefixer, {
       browsers: [
         'last 2 versions',
@@ -110,6 +109,7 @@ var cssTasks = function(filename) {
         'opera 12'
       ]
     })
+    .pipe(concat, filename)
     .pipe(cssNano, {
       safe: true
     })
